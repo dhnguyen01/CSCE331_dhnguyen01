@@ -1,0 +1,39 @@
+:root {
+    --main-bg-color: #0f172a;
+    --spotlight-color: #111f44;
+    --spotlight-radius: 500px;  
+    --text-white: #cbd7ed;
+    --text-darker-grey: #58698b;
+    --text-grey: #899bbb;
+    --social-icons-color: #93a2b8;
+    --button-text-color: #54eac4;
+    --button-bg-color: #122b39;
+}
+
+
+
+body {
+    height: 100vh;
+    margin: 0;
+    background-color: var(--main-bg-color);
+    color: var(--text-white); /* Default text color */
+}
+
+.button {
+    color: var(--button-text-color);
+    background-color: var(--button-bg-color);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+}
+
+/* Spotlight */
+body {
+    height: 100vh;                 
+    margin: 0;
+    background-color: var(--main-bg-color);
+    background-image: radial-gradient(circle, var(--spotlight-color) 0%, transparent var(--spotlight-radius));
+    background-repeat: no-repeat;
+    background-position: center;  
+    transition: background-position 0s linear;
+}

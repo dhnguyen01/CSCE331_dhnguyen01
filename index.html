@@ -1,69 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>David Nguyen</title>
-    <link id="themeStyle" rel="stylesheet" href="style1.css" />
-    <link id="themeStyle" rel="stylesheet" href="style2.css" />
-  </head>
-  <body>
+    <meta name="description" content="David Nguyen, a junior computer science major at Texas A&M, builds engaging and efficient software solutions.">
+    <link rel="icon" href="/favicon.ico">
+    <!-- Add your analytics script here -->
+    <!-- Stylesheets and web fonts can be preloaded here if needed -->
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+  <script src="script.js"></script>
     <header>
-      <!-- Navigation -->
-      <nav>
-        <ul>
-          <li><a href="index.html">David Nguyen</a></li>
-          <li><button id="styleButton">Change Style</button></li>
-        </ul>
-      </nav>
+        <h1><a href="/">David Nguyen</a></h1>
+        <button id="styleButton">Change Style</button>
+        <nav>
+            <ul>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#qualifications">Qualifications</a></li>
+                <li><a href="#service">Service</a></li>
+                <li><a href="#ai">AI</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <section id="about">
-      <h1>About Me</h1>
-      <p>
-        Howdy! My name is David Nguyen, and I am a junior computer science major
-        from Keller, TX. I have always loved to problem-solve and enjoy putting
-        time and effort into creating fun projects. With my experience in
-        multiple coding languages and front-end development, I am committed to
-        creating efficient and polished solutions. I am also very involved at
-        Texas A&M in student orgs and school events.
-      </p>
-    </section>
+    <main>
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Howdy! My name is David Nguyen, a junior computer science major from Keller, TX. I am passionate about problem-solving and front-end development.</p>
+        </section>
+        
+        <section id="portfolio">
+            <h2>Portfolio</h2>
+            <p>Details about my projects and past work here.</p>
+        </section>
 
-    <section id="mainContent">
-      <nav>
-        <ul>
-          <li><a href="portfolio.html">Portfolio</a></li>
-          <li><a href="qualifications.html">Qualifications</a></li>
-          <li><a href="service.html">Service</a></li>
-          <li><a href="ai.html">AI</a></li>
-        </ul>
-      </nav>
-    </section>
+        <section id="qualifications">
+            <h2>Qualifications</h2>
+            <p>List of academic and professional qualifications.</p>
+        </section>
+
+        <section id="service">
+            <h2>Service</h2>
+            <p>Information about my involvement in community service.</p>
+        </section>
+
+        <section id="ai">
+            <h2>Artificial Intelligence</h2>
+            <p>Insights into my AI-related projects and studies.</p>
+        </section>
+    </main>
 
     <footer>
-      <a href="https://www.linkedin.com/in/davidnguyen01"
-        ><img src="/resources/linkedin.svg" alt="LinkedIn"
-      /></a>
-      <a href="https://github.com/dhnguyen01"
-        ><img src="/resources/github.svg" alt="GitHub"
-      /></a>
-      <a href="mailto:davidhnguyen44@gmail.com"
-        ><img src="/resources/email.svg" alt="Email"
-      /></a>
+        <a href="https://www.linkedin.com/in/davidnguyen01"><img src="/resources/linkedin.svg" alt="LinkedIn"></a>
+        <a href="https://github.com/dhnguyen01"><img src="/resources/github.svg" alt="GitHub"></a>
+        <a href="mailto:davidhnguyen44@gmail.com"><img src="/resources/email.svg" alt="Email"></a>
     </footer>
 
     <script>
-      document
-        .getElementById("styleButton")
-        .addEventListener("click", function () {
-          var themeStyle = document.getElementById("themeStyle");
-          if (themeStyle.getAttribute("href") == "style1.css") {
-            themeStyle.setAttribute("href", "style2.css");
-          } else {
-            themeStyle.setAttribute("href", "style1.css");
-          }
+        document.getElementById('styleButton').addEventListener('click', function() {
+            var themeStyle = document.getElementById('themeStyle');
+            if (themeStyle.getAttribute('href') === 'style1.css') {
+                themeStyle.setAttribute('href', 'style2.css');
+            } else {
+                themeStyle.setAttribute('href', 'style1.css');
+            }
         });
     </script>
-  </body>
+</body>
 </html>
