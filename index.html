@@ -1,38 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <div>David Nguyen</div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>David Nguyen</title>
+    <link id="themeStyle" rel="stylesheet" href="style1.css" />
+    <link id="themeStyle" rel="stylesheet" href="style2.css" />
+  </head>
+  <body>
+    <header>
+      <!-- Navigation -->
+      <nav>
+        <ul>
+          <li><a href="index.html">David Nguyen</a></li>
+          <li><button id="styleButton">Change Style</button></li>
+        </ul>
+      </nav>
+    </header>
 
-    <div class="nav-button">
-        <a href="index.html">
-            Home
-        </a>
-    </div>
-    <div class="nav-button">
-        <a href="portfolio.html">
-            Portfolio
-        </a>
-    </div>
-    <div class="nav-button">
-        <a href="qualifications.html">
-            Qualifications
-        </a>
-    </div>
-    <div class="nav-button">
-        <a href="service.html">
-            Service
-        </a>
-    </div>
-    <div class="nav-button">
-        <a href="ai.html">
-            AI
-        </a>
-    </div>
-    
-</body>
+    <section id="about">
+      <h1>About Me</h1>
+      <p>
+        Howdy! My name is David Nguyen, and I am a junior computer science major
+        from Keller, TX. I have always loved to problem-solve and enjoy putting
+        time and effort into creating fun projects. With my experience in
+        multiple coding languages and front-end development, I am committed to
+        creating efficient and polished solutions. I am also very involved at
+        Texas A&M in student orgs and school events.
+      </p>
+    </section>
+
+    <section id="mainContent">
+      <nav>
+        <ul>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="qualifications.html">Qualifications</a></li>
+          <li><a href="service.html">Service</a></li>
+          <li><a href="ai.html">AI</a></li>
+        </ul>
+      </nav>
+    </section>
+
+    <footer>
+      <a href="https://www.linkedin.com/in/davidnguyen01"
+        ><img src="/resources/linkedin.svg" alt="LinkedIn"
+      /></a>
+      <a href="https://github.com/dhnguyen01"
+        ><img src="/resources/github.svg" alt="GitHub"
+      /></a>
+      <a href="mailto:davidhnguyen44@gmail.com"
+        ><img src="/resources/email.svg" alt="Email"
+      /></a>
+    </footer>
+
+    <script>
+      document
+        .getElementById("styleButton")
+        .addEventListener("click", function () {
+          var themeStyle = document.getElementById("themeStyle");
+          if (themeStyle.getAttribute("href") == "style1.css") {
+            themeStyle.setAttribute("href", "style2.css");
+          } else {
+            themeStyle.setAttribute("href", "style1.css");
+          }
+        });
+    </script>
+  </body>
 </html>
