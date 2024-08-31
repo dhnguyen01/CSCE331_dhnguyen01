@@ -2,21 +2,25 @@
     --main-bg-color: #0f172a;
     --spotlight-color: #111f44;
     --spotlight-radius: 500px;  
-    --text-white: #cbd7ed;
-    --text-darker-grey: #58698b;
-    --text-grey: #899bbb;
+    --text-pop: #cbd7ed;
+    --text-description: #58698b;
+    --text-paragraph: #899bbb;
+    --text-highlight: #54eac4;
     --social-icons-color: #93a2b8;
     --button-text-color: #54eac4;
     --button-bg-color: #122b39;
 }
 
-
+::selection {
+    background-color: var(--text-highlight);
+    color: var(--main-bg-color);
+}
 
 body {
     height: 100vh;
     margin: 0;
     background-color: var(--main-bg-color);
-    color: var(--text-white); /* Default text color */
+    color: var(--text-paragraph);
 }
 
 .button {
@@ -36,4 +40,47 @@ body {
     background-repeat: no-repeat;
     background-position: center;  
     transition: background-position 0s linear;
+}
+
+footer.social-links img {
+    width: 24px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+footer.social-links img:hover {
+    transform: scale(1.1);
+}
+
+p {
+    color: var(--text-paragraph);
+
+}
+
+h1 {
+    text-decoration: none;
+    color: var(--text-pop);
+}
+
+h2 {
+    color: var(--text-pop);
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-pop);
+    transition: color 0.1s ease;
+}
+
+a:hover {
+    color: var(--button-text-color);
+}
+
+button {
+    color: var(--button-text-color);
+    background-color: var(--button-bg-color);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
 }
