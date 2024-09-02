@@ -384,6 +384,49 @@ button {
 }
 
 button:hover {
-  background-color: var(--text-highlight);
-  color: var(--main-bg-color);
+background-color: var(--text-highlight);
+color: var(--main-bg-color);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:visited {
+    color: inherit;
+}
+
+a:hover {
+    color: var(--text-highlight);
+}
+
+#byx-link {
+    color: var(--text-highlight);
+}
+
+#byx-link:hover {
+    color: var(--text-pop);
+}
+
+#windSymphonyLink {
+    color: var(--text-highlight);
+}
+
+#windSymphonyLink:hover {
+    color: var(--text-pop);
+}
+
+.word-link {
+    color: var(--text-highlight);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.word-link:hover {
+    color: var(--text-pop);
+}
+
+.word-link:visited {
+    color: var(--text-highlight);
 }
