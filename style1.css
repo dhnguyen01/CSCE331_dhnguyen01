@@ -9,31 +9,24 @@
   --social-icons-color: #93a2b8;
   --button-text-color: #54eac4;
   --button-bg-color: #122b39;
+  --card-bg-color: rgba(255, 255, 255, 0.05);
+  --card-border-color: #1e293b;
+  --card-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+  --header-bg-color: rgba(255, 255, 255, 0.05);
+  --nav-link-padding: 10px;
+  --nav-link-margin: 0 15px;
+  --nav-link-border-radius: 5px;
+  --nav-link-hover-bg: rgba(84, 234, 196, 0.1); /* Subtle hover effect */
 }
 
-::selection {
-  background-color: var(--text-highlight);
-  color: var(--main-bg-color);
-}
-
-body {
-  height: 100vh;
+* {
+  box-sizing: border-box;
   margin: 0;
-  background-color: var(--main-bg-color);
-  color: var(--text-paragraph);
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.button {
-  color: var(--button-text-color);
-  background-color: var(--button-bg-color);
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-}
-
-/* Spotlight */
 body {
-  height: 100vh;
   margin: 0;
   background-color: var(--main-bg-color);
   background-image: radial-gradient(
@@ -42,42 +35,341 @@ body {
     transparent var(--spotlight-radius)
   );
   background-repeat: no-repeat;
-  background-position: center;
-  transition: background-position 0s linear;
+  background-position: top 50% left 50%;
+    background-attachment: fixed;
+  color: var(--text-paragraph);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+/* Header */
+header {
+  background-color: var(--header-bg-color);
+  padding: 20px;
+  text-align: center;
+}
+
+header h1,
+header h2 {
+  color: var(--text-pop);
+  margin: 10px 0;
+}
+
+header h1 a,
+header h2 a {
+  color: var(--text-pop);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+header h1 a:hover,
+header h2 a:hover {
+  color: var(--text-highlight);
+}
+
+/* Navigation */
+nav {
+  display: flex;
+  justify-content: center;
+  background-color: var(--header-bg-color);
+  padding: 10px 0;
+  margin-bottom: 0px;
+  margin-top: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li a {
+  color: var(--text-pop);
+  text-decoration: none;
+  padding: var(--nav-link-padding);
+  margin: var(--nav-link-margin);
+  border-radius: var(--nav-link-border-radius);
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  background-color: var(--nav-link-hover-bg);
+  color: var(--text-highlight);
+  height: 10px; /* Adjust the height as desired */
+}
+
+/* Content Layout */
+main.content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px;
+  gap: 20px;
+}
+
+/* Main Content */
+main {
+  padding: 20px;
+  flex: 1;
+}
+
+/* About Section */
+section#about {
+  text-align: center;
+  max-width: 800px;
+  margin: auto;
+}
+
+.headshot {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  margin-top: 20px;
+}
+
+section#about p,
+p {
+  color: var(--text-paragraph);
+}
+
+section#about h2,
+h2 {
+  color: var(--text-pop);
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+/* Portfolio Section */
+section#portfolio {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: var(--qualification-bg);
+  border-radius: 15px;
+  box-shadow: var(--qualification-shadow);
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+
+section#portfolio:hover {
+  transform: translateY(-5px);
+}
+
+section#portfolio h2 {
+  color: var(--text-pop);
+  margin-bottom: 15px;
+  font-size: 2rem;
+}
+
+section#portfolio p {
+  color: var(--text-paragraph);
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+}
+
+section#portfolio ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+section#portfolio ul li {
+  background-color: var(--card-bg-color);
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section#portfolio ul li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.project-title {
+  color: var(--text-pop);
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 10px;
+  border-bottom: 2px solid var(--text-highlight);
+  padding-bottom: 5px;
+  transition: color 0.3s ease;
+}
+
+.project-title:hover {
+  color: var(--text-highlight);
+}
+
+.project-description {
+  color: var(--text-paragraph);
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+section#portfolio .tech-stack {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+section#portfolio .tech-stack li {
+  background-color: var(--button-bg-color) !important;
+  color: var(--button-text-color) !important;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  font-style: italic;
+  display: inline-block;
+}
+
+#wordle-gui-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px var(--qualification-shadow);
+}
+
+/* Service Section */
+section.service-project {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: var(--card-bg-color);
+  border-radius: 15px;
+  box-shadow: var(--card-shadow);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+section.service-project img {
+  max-width: 100%;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+section.service-project:hover {
+  transform: translateY(-5px);
+}
+
+/* Qualifications Section */
+section.qualification {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: var(--card-bg-color);
+  border-radius: 15px;
+  box-shadow: var(--card-shadow);
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+
+section.qualification:hover {
+  transform: translateY(-5px);
+}
+
+section.qualification h2 {
+  color: var(--text-pop);
+  margin-bottom: 15px;
+  font-size: 1.8rem;
+  border-bottom: 2px solid var(--text-highlight);
+  padding-bottom: 5px;
+}
+
+section.qualification ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+section.qualification ul li {
+  color: var(--text-paragraph);
+  margin-bottom: 10px;
+  font-size: 1rem;
+  padding-left: 15px;
+  position: relative;
+}
+
+section.qualification ul li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--text-highlight);
+  font-size: 1.2rem;
+}
+
+/* Class Photo Section */
+section#class-photo {
+  max-width: 100%;
+  margin: 40px auto;
+  text-align: center;
+}
+
+section#class-photo img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: var(--card-shadow);
+  object-fit: cover;
+}
+
+/* Resume Download Button */
+section#resume {
+  text-align: center;
+  margin: 20px auto;
+}
+
+.download-button {
+  display: inline-block;
+  padding: 15px 30px;
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+  text-decoration: none;
+  border-radius: 5px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.download-button:hover {
+  background-color: var(--text-highlight);
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3);
+  color: var(--main-bg-color);
+}
+
+/* Footer */
+footer.social-links {
+  background-color: var(--header-bg-color);
+  padding: 20px;
+  text-align: center;
+}
+
+footer.social-links a {
+  margin: 0 10px;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
 footer.social-links img {
   width: 24px;
   height: auto;
-  transition: transform 0.3s ease;
 }
 
 footer.social-links img:hover {
   transform: scale(1.1);
-}
-
-p {
-  color: var(--text-paragraph);
-}
-
-h1 {
-  text-decoration: none;
-  color: var(--text-pop);
-}
-
-h2 {
-  color: var(--text-pop);
-  text-decoration: none;
-}
-
-a {
-  text-decoration: none;
-  color: var(--text-pop);
-  transition: color 0.1s ease;
-}
-
-a:hover {
-  color: var(--button-text-color);
+  color: var(--text-highlight);
 }
 
 button {
@@ -86,12 +378,12 @@ button {
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
 }
 
-.headshot {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: center;
+button:hover {
+  background-color: var(--text-highlight);
+  color: var(--main-bg-color);
 }

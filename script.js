@@ -1,8 +1,16 @@
 document.addEventListener("mousemove", function (e) {
-  const offsetX = e.clientX - 950;
-  const offsetY = e.clientY - 480 + window.scrollY;
-  document.body.style.backgroundPosition = `${offsetX}px ${offsetY}px`;
+  const viewportWidth = window.innerWidth;
+  const viewportHeight = window.innerHeight;
+
+  const offsetX = e.clientX - (viewportWidth / 2);
+  const offsetY = e.clientY - (viewportHeight / 2);
+
+  document.body.style.backgroundPosition = `calc(50% + ${offsetX}px) calc(50% + ${offsetY}px)`;
 });
+
+
+
+
 
 document.addEventListener("DOMContentLoaded", function () {
   var themeStyle = document.getElementById("themeStyle");
