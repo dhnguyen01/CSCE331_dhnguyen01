@@ -16,7 +16,7 @@
   --nav-link-padding: 10px;
   --nav-link-margin: 0 15px;
   --nav-link-border-radius: 5px;
-  --nav-link-hover-bg: rgba(84, 234, 196, 0.1); /* Subtle hover effect */
+  --nav-link-hover-bg: rgba(84, 234, 196, 0.1);
 }
 
 * {
@@ -101,7 +101,7 @@ nav ul li a {
 nav ul li a:hover {
   background-color: var(--nav-link-hover-bg);
   color: var(--text-highlight);
-  height: 10px; /* Adjust the height as desired */
+  height: 10px;
 }
 
 /* Content Layout */
