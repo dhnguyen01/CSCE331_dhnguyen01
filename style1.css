@@ -212,6 +212,10 @@ section#portfolio ul li:hover {
   color: var(--text-highlight);
 }
 
+.project-title:visited {
+  color: var(--text-pop);
+}
+
 .project-description {
   color: var(--text-paragraph);
   font-size: 1rem;
@@ -401,32 +405,20 @@ a:hover {
     color: var(--text-highlight);
 }
 
-#byx-link {
-    color: var(--text-highlight);
-}
-
-#byx-link:hover {
-    color: var(--text-pop);
-}
-
-#windSymphonyLink {
-    color: var(--text-highlight);
-}
-
-#windSymphonyLink:hover {
-    color: var(--text-pop);
-}
-
-.word-link {
+a.word-link {
     color: var(--text-highlight);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
-.word-link:hover {
+a.word-link:visited {
+    color: var(--text-highlight);
+}
+
+a.word-link:hover {
     color: var(--text-pop);
 }
 
-.word-link:visited {
-    color: var(--text-highlight);
-}
+
+
+
