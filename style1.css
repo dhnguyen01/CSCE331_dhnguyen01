@@ -1,7 +1,7 @@
 :root {
   --main-bg-color: #0f172a;
   --spotlight-color: #111f44;
-  --spotlight-radius: 500px;
+  --spotlight-radius: 50vh;
   --text-pop: #cbd7ed;
   --text-description: #58698b;
   --text-paragraph: #899bbb;
@@ -35,7 +35,7 @@ body {
     transparent var(--spotlight-radius)
   );
   background-repeat: no-repeat;
-  background-position: top 50% left 50%;
+  background-position: center;
     background-attachment: fixed;
   color: var(--text-paragraph);
   display: flex;
