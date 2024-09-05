@@ -9,27 +9,31 @@ document.addEventListener("mousemove", function (e) {
 });
 
 
+function loadStyle() {
+  const currentStyle = localStorage.getItem("cssStyle") || "style1.css";
+  document.getElementById("stylesheet").href = currentStyle;
+}
 
+function toggleStyle() {
+  const stylesheet = document.getElementById("stylesheet");
+  const currentStyle = localStorage.getItem("cssStyle");
 
-
-document.addEventListener("DOMContentLoaded", function () {
-  var themeStyle = document.getElementById("themeStyle");
-  var storedTheme = localStorage.getItem("themeStyle");
-
-  if (storedTheme) {
-    themeStyle.setAttribute("href", storedTheme);
+  if (currentStyle === "style1.css") {
+    stylesheet.href = "style2.css";
+    localStorage.setItem("cssStyle", "style2.css");
+  } else {
+    stylesheet.href = "style1.css";
+    localStorage.setItem("cssStyle", "style1.css");
   }
+}
 
-  var button = document.getElementById("styleButton");
-  if (button) {
-    button.addEventListener("click", function () {
-      var newTheme =
-        themeStyle.getAttribute("href") === "style1.css"
-          ? "style2.css"
-          : "style1.css";
-      themeStyle.setAttribute("href", newTheme);
-
-      localStorage.setItem("themeStyle", newTheme);
-    });
+document.addEventListener("DOMContentLoaded", () => {
+  loadStyle();
+  
+  const toggleButton = document.getElementById("StyleButton");
+  
+  if (toggleButton) {
+    toggleButton.addEventListener("click", toggleStyle);
   }
 });
+

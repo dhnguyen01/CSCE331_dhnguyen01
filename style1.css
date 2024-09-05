@@ -104,6 +104,10 @@ nav ul li a:hover {
   height: 10px;
 }
 
+nav ul li a:visited {
+  color: var(--text-pop);
+}
+
 /* Content Layout */
 main.content {
   display: flex;

@@ -1,49 +1,52 @@
 :root {
-    --main-bg-color: #7D0A0A; /* Main background color */
-    --spotlight-color: #BF3131; /* Spotlight color */
-    --spotlight-radius: 50vh;
-    --text-pop: #EAD196; /* Text pop color */
-    --text-description: #BF3131; /* Text description color */
-    --text-paragraph: #F3EDC8; /* Text paragraph color */
-    --text-highlight: #EAD196; /* Text highlight color */
-    --social-icons-color: #BF3131; /* Social icons color */
-    --button-text-color: #EAD196; /* Button text color */
-    --button-bg-color: #7D0A0A; /* Button background color */
-    --card-bg-color: rgba(243, 237, 200, 0.05); /* Card background color */
-    --card-border-color: #BF3131; /* Card border color */
-    --card-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
-    --header-bg-color: rgba(243, 237, 200, 0.05); /* Header background color */
-    --nav-link-padding: 10px;
-    --nav-link-margin: 0 15px;
-    --nav-link-border-radius: 5px;
-    --nav-link-hover-bg: rgba(234, 209, 150, 0.1); /* Adjusted for text highlight */
+  --text-pop: #ffffff; /* Text pop color */
+  --text-description: #ffffff; /* Text description color */
+  --text-paragraph: #ffffff; /* Text paragraph color */
+  --text-highlight: #ffffff; /* Text highlight color */
+  --social-icons-color: #F08A5D; /* Social icons color */
+  --button-text-color: #F9ED69; /* Button text color */
+  --button-bg-color: #B83B5E; /* Button background color */
+  --card-bg-color: rgba(169, 44, 112, 0.05); /* Card background color */
+  --card-border-color: #F08A5D; /* Card border color */
+  --card-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+  --header-bg-color: rgba(169, 44, 112, 0.05); /* Header background color */
+  --nav-link-padding: 10px;
+  --nav-link-margin: 0 15px;
+  --nav-link-border-radius: 5px;
+  --nav-link-hover-bg: rgba(240, 138, 93, 0.1); /* Adjusted for text highlight */
 }
 
 
   
   * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   }
   
   body {
-    margin: 0;
-    background-color: var(--main-bg-color);
-    background-image: radial-gradient(
-      circle,
-      var(--spotlight-color) 0%,
-      transparent var(--spotlight-radius)
-    );
-    background-repeat: no-repeat;
-    background-position: center;
-      background-attachment: fixed;
-    color: var(--text-paragraph);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 100vh;
+  margin: 0;
+  background: linear-gradient(-45deg, #F9ED69, #F08A5D, #B83B5E, #6A2C70);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  color: var(--text-paragraph);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  }
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
   }
   
   /* Header */
