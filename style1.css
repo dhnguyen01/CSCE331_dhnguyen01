@@ -98,14 +98,15 @@ nav ul li a {
   font-weight: bold;
 }
 
+nav ul li a:visited {
+  text-decoration: none;
+  color: var(--text-pop);
+}
+
 nav ul li a:hover {
   background-color: var(--nav-link-hover-bg);
   color: var(--text-highlight);
   height: 10px;
-}
-
-nav ul li a:visited {
-  color: var(--text-pop);
 }
 
 /* Content Layout */
@@ -365,6 +366,19 @@ section#resume {
 }
 
 /* Footer */
+
+footer.social-links a.linkedin {
+  background-image: url('./resources/linkedin.svg');
+}
+
+footer.social-links a.github {
+  background-image: url('./resources/github.svg');
+}
+
+footer.social-links a.email {
+  background-image: url('./resources/email.svg');
+}
+
 footer.social-links {
   background-color: var(--header-bg-color);
   padding: 20px;
@@ -372,8 +386,13 @@ footer.social-links {
 }
 
 footer.social-links a {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
   margin: 0 10px;
-  transition: transform 0.3s ease, color 0.3s ease;
+  transition: transform 0.3s ease color 0.3s ease;
+  background-size: cover;
+  background-position: center;
 }
 
 footer.social-links img {
@@ -381,7 +400,7 @@ footer.social-links img {
   height: auto;
 }
 
-footer.social-links img:hover {
+footer.social-links a:hover {
   transform: scale(1.1);
   color: var(--text-highlight);
 }
