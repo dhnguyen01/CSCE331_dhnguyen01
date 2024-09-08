@@ -448,6 +448,69 @@ a.word-link:hover {
     color: var(--text-pop);
 }
 
+#StyleButton {
+  padding: 15px 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  border: none;
+  border-radius: 50px;
+  color: white;
+  background: linear-gradient(90deg, #0f172a, #cbd7ed, #54eac4);
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(15, 23, 42, 0.4);
+  transition: background 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
+  outline: none;
+}
+
+#StyleButton::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, #102C57, #EADBC8, #DAC0A3);
+  z-index: -1;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  opacity: 0;
+  border-radius: 50%;
+  transform: scale(0.1);
+}
+
+#StyleButton:hover::before {
+  opacity: 1;
+  transform: scale(1.5);
+}
+
+#StyleButton:hover {
+  background: linear-gradient(90deg, #102C57, #EADBC8, #DAC0A3);
+  color: white;
+  box-shadow: 0 8px 30px rgba(234, 219, 200, 0.8), 0 4px 15px rgba(16, 44, 87, 0.6);
+}
+
+#StyleButton::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #102C57, #EADBC8, #DAC0A3);
+  z-index: -2;
+  opacity: 0;
+  border-radius: 50px;
+  filter: blur(10px);
+  transition: opacity 0.6s ease, filter 0.6s ease;
+}
+
+#StyleButton:hover::after {
+  opacity: 0.8;
+  filter: blur(20px);
+}
 
 
 

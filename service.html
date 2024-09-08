@@ -6,28 +6,30 @@
     <title>Service</title>
     <link id="stylesheet" rel="stylesheet" href="style1.css">
   </head>
-  <body>
+  <body id="service-body">
+    <div class="nav-bar">
     <header>
       <h1 id="name"><a href="./">David Nguyen</a></h1>
       <h1>Service Activities</h1>
+      <nav>
+        <ul>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="qualifications.html">Qualifications</a></li>
+          <li><a href="ai.html">AI Page</a></li>
+        </ul>
+      </nav>
     </header>
 
-    <nav>
-      <ul>
-        <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="qualifications.html">Qualifications</a></li>
-        <li><a href="ai.html">AI Page</a></li>
-      </ul>
-    </nav>
-
-    <section class="service-project">
+  </div>
+    <main class="card-container">
+    <section class="service-project card">
       <h2>
         <a href="http://thebridgeministries.org/index.html" target="_blank"
           >The Bridge Ministries</a
         >
       </h2>
       <a href="http://thebridgeministries.org/index.html" target="_blank"
-        ><img src="./images/bridge2.jpg" alt="The Bridge Ministries"
+        ><img class="card-image" src="./images/bridge2.jpg" alt="The Bridge Ministries"
       /></a>
       <p>
         I am involved in the
@@ -53,14 +55,14 @@
       </p>
     </section>
 
-    <section class="service-project">
+    <section class="service-project card">
       <h2>
         <a href="https://water.cc/" target="_blank"
           >Living Water International</a
         >
       </h2>
       <a href="https://water.cc/" target="_blank"
-        ><img src="./images/island_party.jpg" alt="Living Water International"
+        ><img class="card-image" src="./images/island_party.jpg" alt="Living Water International"
       /></a>
       <p>
         BYX's national philanthropy is
@@ -79,12 +81,12 @@
       </p>
     </section>
 
-    <section class="service-project">
+    <section class="service-project card">
       <h2>
         <a href="https://bigevent.tamu.edu/" target="_blank">The Big Event</a>
       </h2>
       <a href="https://bigevent.tamu.edu/" target="_blank"
-        ><img src="./images/big_event.jpg" alt="The Big Event"
+        ><img class="card-image" src="./images/big_event.jpg" alt="The Big Event"
       /></a>
       <p>
         I have volunteered for
@@ -96,6 +98,8 @@
         washing, and gardening for residents of the community.
       </p>
     </section>
+  </main>
+
     <footer class="social-links">
       <a href="https://www.linkedin.com/in/davidnguyen01" target="_blank" class="linkedin"></a>
       <a href="https://github.com/dhnguyen01" target="_blank" class="github"></a>

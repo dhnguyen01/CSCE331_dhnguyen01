@@ -6,26 +6,24 @@
     <title>Technical Portfolio</title>
     <link id="stylesheet" rel="stylesheet" href="style1.css" />
   </head>
-  <body>
+  <body id="portfolio-body">
     <header>
       <h1 id="name"><a href="./">David Nguyen</a></h1>
-      <h2>Technical Portfolio</h2>
+      <h1>Technical Portfolio</h1>
+      <nav>
+        <ul>
+          <li><a href="qualifications.html">Qualifications</a></li>
+          <li><a href="service.html">Service</a></li>
+          <li><a href="ai.html">AI Page</a></li>
+        </ul>
+      </nav>
     </header>
 
-    <nav>
-      <ul>
-        <li><a href="qualifications.html">Qualifications</a></li>
-        <li><a href="service.html">Service</a></li>
-        <li><a href="ai.html">AI Page</a></li>
-      </ul>
-    </nav>
 
     <main>
       <section id="portfolio">
-        <h2>Portfolio</h2>
-        <p>Here are some projects I've worked on!</p>
-        <ul>
-          <li>
+        <ul id="portfolio-list">
+          <li class="portfolio-item">
             <a
               class="project-title"
               href="https://github.com/dhnguyen01/Wordle-GUI"
@@ -56,7 +54,7 @@
               <li>CSS</li>
             </ul>
           </li>
-          <li>
+          <li class="portfolio-item">
             <a
               class="project-title"
               href="https://github.com/timothyk31/DiningHall--"
@@ -81,7 +79,7 @@
               <li>MongoDB</li>
             </ul>
           </li>
-          <li>
+          <li class="portfolio-item">
             <a
               class="project-title"
               href="https://github.com/dhnguyen01/Unordered-Map"
