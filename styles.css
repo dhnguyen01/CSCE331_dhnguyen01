@@ -1,0 +1,1813 @@
+/* Reset and Base Styles */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #0e0e0e;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+/* Root Variables */
+:root {
+    --primary-color: #ff007f;
+    --secondary-color: #1e1e1e;
+    --accent-color: #00ffe1;
+    --background-color: #0e0e0e;
+    --text-color: #ffffff;
+    --font-sans: 'Poppins', sans-serif;
+    --font-serif: 'Playfair Display', serif;
+    --transition-speed: 0.3s;
+    --border-radius: 10px;
+    --gradient-angle: 45deg;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Global Styles */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+li,
+a,
+img,
+section,
+nav,
+header,
+footer {
+    transition: all var(--transition-speed) ease-in-out;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-serif);
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+h1 {
+    font-size: 4rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    position: relative;
+}
+
+h2 {
+    font-size: 3rem;
+    position: relative;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-color);
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10px;
+}
+
+p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    position: relative;
+    z-index: 1;
+}
+
+a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background: var(--accent-color);
+    left: 0;
+    bottom: -2px;
+    transition: width var(--transition-speed);
+}
+
+a:hover::after {
+    width: 100%;
+}
+
+/* Header */
+header {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(var(--gradient-angle), var(--primary-color), var(--accent-color));
+}
+
+header .content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    animation: neonGlow 1.5s ease-in-out infinite alternate;
+}
+
+header p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    animation: fadeIn 2s ease forwards;
+    animation-delay: 1s;
+}
+
+@keyframes neonGlow {
+    from {
+        text-shadow:
+            0 0 10px var(--primary-color),
+            0 0 20px var(--primary-color),
+            0 0 30px var(--primary-color),
+            0 0 40px var(--primary-color),
+            0 0 50px var(--primary-color),
+            0 0 60px var(--primary-color),
+            0 0 70px var(--primary-color);
+    }
+    to {
+        text-shadow:
+            0 0 20px var(--accent-color),
+            0 0 30px var(--accent-color),
+            0 0 40px var(--accent-color),
+            0 0 50px var(--accent-color),
+            0 0 60px var(--accent-color),
+            0 0 70px var(--accent-color),
+            0 0 80px var(--accent-color);
+    }
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, transparent 0%, var(--background-color) 70%);
+    top: -50%;
+    left: -50%;
+    animation: rotate 20s linear infinite;
+    z-index: 1;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+header .neon-button {
+    animation: fadeInUp 2s ease forwards;
+    animation-delay: 2s;
+}
+
+/* Navigation */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(15, 15, 15, 0.8);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    transition: background var(--transition-speed);
+}
+
+nav.scrolled {
+    background: rgba(15, 15, 15, 1);
+}
+
+nav .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+nav ul li a {
+    color: var(--text-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    transition: color var(--transition-speed);
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background: var(--primary-color);
+    left: 0;
+    bottom: -5px;
+    transition: width var(--transition-speed);
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+nav ul li a:hover {
+    color: var(--primary-color);
+}
+
+nav .menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+nav .menu-toggle div {
+    width: 30px;
+    height: 3px;
+    background: var(--text-color);
+    margin: 5px 0;
+    transition: all var(--transition-speed);
+}
+
+nav.active .menu-toggle .bar1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+nav.active .menu-toggle .bar2 {
+    opacity: 0;
+}
+
+nav.active .menu-toggle .bar3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+@media (max-width: 768px) {
+    nav .menu-toggle {
+        display: flex;
+    }
+    nav ul {
+        position: absolute;
+        top: 70px;
+        right: -100%;
+        flex-direction: column;
+        background: rgba(15, 15, 15, 0.95);
+        width: 200px;
+        padding: 2rem;
+        border-radius: var(--border-radius);
+        transition: right var(--transition-speed);
+    }
+    nav.active ul {
+        right: 0;
+    }
+    nav ul li {
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* Sections */
+section {
+    padding: 6rem 2rem;
+    position: relative;
+    overflow: hidden;
+    background: url('./images/section-bg.jpg') no-repeat center center/cover;
+}
+
+section:nth-child(even) {
+    background: url('./images/section-bg-alt.jpg') no-repeat center center/cover;
+}
+
+section::before {
+    content: '';
+    position: absolute;
+    top: -150%;
+    left: -150%;
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(circle at center, var(--accent-color), transparent 70%);
+    animation: rotateBackground 30s linear infinite;
+    opacity: 0.1;
+}
+
+@keyframes rotateBackground {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+.section-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+section img {
+    width: 100%;
+    max-width: 800px;
+    border-radius: var(--border-radius);
+    margin: 2rem 0;
+    box-shadow: 0 20px 60px var(--shadow-color);
+    transition: transform var(--transition-speed), filter var(--transition-speed);
+}
+
+section img:hover {
+    transform: scale(1.1) rotate(5deg);
+    filter: brightness(1.2);
+}
+
+.section-content p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+    animation: fadeIn 1s ease forwards;
+    animation-delay: 0.5s;
+}
+
+/* Textbox */
+.textbox {
+    background: rgba(255, 255, 255, 0.1);
+    border-left: 4px solid var(--primary-color);
+    padding: 2rem;
+    font-family: 'Courier New', Courier, monospace;
+    color: var(--text-color);
+    border-radius: var(--border-radius);
+    animation: fadeIn 1s ease forwards;
+}
+
+.textbox p {
+    margin-bottom: 1rem;
+}
+
+.textbox p:last-child {
+    margin-bottom: 0;
+}
+
+/* Footer */
+footer {
+    background: var(--secondary-color);
+    color: var(--text-color);
+    text-align: center;
+    padding: 3rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, var(--primary-color), transparent 70%);
+    top: -50%;
+    left: -50%;
+    animation: rotate 30s linear infinite reverse;
+    opacity: 0.1;
+    z-index: -1;
+}
+
+footer p {
+    font-size: 1rem;
+    z-index: 1;
+}
+
+/* Custom Cursor */
+.cursor {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease, background 0.2s ease;
+    z-index: 10000;
+}
+
+.cursor.click {
+    transform: translate(-50%, -50%) scale(0.8);
+}
+
+.cursor.hover {
+    transform: translate(-50%, -50%) scale(2);
+    background: var(--accent-color);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--secondary-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-color);
+}
+
+/* Scroll to Top Button */
+.scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--primary-color);
+    color: var(--text-color);
+    border: none;
+    padding: 1rem;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    opacity: 0;
+    transition: opacity var(--transition-speed), transform var(--transition-speed);
+    z-index: 1000;
+}
+
+.scroll-to-top.visible {
+    display: block;
+    opacity: 1;
+}
+
+.scroll-to-top:hover {
+    transform: scale(1.1);
+}
+
+/* Dark Mode */
+.dark-mode {
+    --background-color: #ffffff;
+    --text-color: #0e0e0e;
+    --secondary-color: #f5f5f5;
+}
+
+.dark-mode body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.dark-mode nav {
+    background: rgba(245, 245, 245, 0.8);
+}
+
+.dark-mode nav.scrolled {
+    background: rgba(245, 245, 245, 1);
+}
+
+.dark-mode nav .logo {
+    color: var(--primary-color);
+}
+
+.dark-mode nav ul li a {
+    color: var(--text-color);
+}
+
+.dark-mode nav ul li a::after {
+    background: var(--primary-color);
+}
+
+.dark-mode header {
+    background: linear-gradient(var(--gradient-angle), var(--primary-color), var(--accent-color));
+}
+
+.dark-mode header::before {
+    background: radial-gradient(circle at center, transparent 0%, var(--background-color) 70%);
+}
+
+.dark-mode .cursor {
+    background: var(--text-color);
+}
+
+.dark-mode .scroll-to-top {
+    background: var(--text-color);
+    color: var(--background-color);
+}
+
+.dark-mode footer {
+    background: var(--secondary-color);
+    color: var(--text-color);
+}
+
+.dark-mode footer::before {
+    background: radial-gradient(circle at center, var(--primary-color), transparent 70%);
+}
+
+/* Button Hover Effects */
+.button-hover {
+    position: relative;
+    display: inline-block;
+    color: var(--text-color);
+    text-transform: uppercase;
+    padding: 1rem 2rem;
+    border: none;
+    background: var(--primary-color);
+    overflow: hidden;
+    cursor: pointer;
+    transition: color var(--transition-speed);
+}
+
+.button-hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--accent-color);
+    transition: left var(--transition-speed);
+    z-index: -1;
+}
+
+.button-hover:hover::before {
+    left: 0;
+}
+
+.button-hover:hover {
+    color: var(--background-color);
+}
+
+/* Hover Effects on Images */
+img:hover {
+    filter: brightness(1.2) saturate(1.5);
+    transform: scale(1.05) rotate(3deg);
+    box-shadow: 0 20px 60px var(--shadow-color);
+}
+
+/* Text Shadow Effects */
+.text-shadow {
+    text-shadow: 2px 2px 5px var(--shadow-color);
+}
+
+.text-stroke {
+    -webkit-text-stroke: 1px var(--primary-color);
+    color: transparent;
+}
+
+.gradient-text {
+    background: linear-gradient(var(--gradient-angle), var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Transformations and Transitions */
+.transform-scale {
+    transition: transform var(--transition-speed);
+}
+
+.transform-scale:hover {
+    transform: scale(1.1);
+}
+
+.transform-rotate {
+    transition: transform var(--transition-speed);
+}
+
+.transform-rotate:hover {
+    transform: rotate(5deg);
+}
+
+.transform-translate {
+    transition: transform var(--transition-speed);
+}
+
+.transform-translate:hover {
+    transform: translateY(-10px);
+}
+
+/* Additional Animations */
+@keyframes slideInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Applying Animations to Elements */
+.section-title {
+    animation: slideInLeft 1s ease forwards;
+}
+
+.section-text {
+    animation: slideInRight 1s ease forwards;
+    animation-delay: 0.5s;
+}
+
+.pulse-on-hover:hover {
+    animation: pulse 1s infinite;
+}
+
+/* Grid Layouts */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 4rem 0;
+}
+
+.grid-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 40px var(--shadow-color);
+    transition: transform var(--transition-speed);
+}
+
+.grid-item:hover {
+    transform: translateY(-10px);
+}
+
+/* Cards */
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 10px 40px var(--shadow-color);
+    transition: transform var(--transition-speed);
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img {
+    width: 100%;
+    display: block;
+}
+
+.card-content {
+    padding: 1.5rem;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.card-text {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Forms */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-control {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-bottom: 2px solid var(--text-color);
+    background: transparent;
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: border-color var(--transition-speed);
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.form-submit {
+    background: var(--primary-color);
+    color: var(--text-color);
+    padding: 1rem 2rem;
+    border: none;
+    cursor: pointer;
+    transition: background var(--transition-speed);
+}
+
+.form-submit:hover {
+    background: var(--accent-color);
+}
+
+/* Tables */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+}
+
+.table th,
+.table td {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.table th {
+    background: var(--secondary-color);
+    color: var(--text-color);
+}
+
+.table-striped tbody tr:nth-child(odd) {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.table-hover tbody tr:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Lists */
+.list {
+    list-style: none;
+    padding: 0;
+}
+
+.list-item {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.list-item:last-child {
+    border-bottom: none;
+}
+
+.list-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Accordions */
+.accordion {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.accordion-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.accordion-item:last-child {
+    border-bottom: none;
+}
+
+.accordion-header {
+    padding: 1rem;
+    cursor: pointer;
+    position: relative;
+}
+
+.accordion-header::after {
+    content: '+';
+    position: absolute;
+    right: 1rem;
+    font-size: 1.5rem;
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-speed);
+}
+
+.accordion-content p {
+    padding: 1rem;
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 200px;
+}
+
+.accordion-item.active .accordion-header::after {
+    content: '-';
+}
+
+/* Modals */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 15, 15, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-speed);
+}
+
+.modal.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-content {
+    background: var(--secondary-color);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    max-width: 500px;
+    width: 100%;
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.modal-close:hover {
+    color: var(--primary-color);
+}
+
+/* Tooltips */
+.tooltip {
+    position: relative;
+    cursor: pointer;
+}
+
+.tooltip::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 150%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--secondary-color);
+    color: var(--text-color);
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-speed);
+}
+
+.tooltip:hover::after {
+    opacity: 1;
+}
+
+/* Image Overlays */
+.image-overlay {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+}
+
+.image-overlay img {
+    width: 100%;
+    transition: transform var(--transition-speed);
+}
+
+.image-overlay:hover img {
+    transform: scale(1.1);
+}
+
+.image-overlay .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 15, 15, 0.7);
+    opacity: 0;
+    transition: opacity var(--transition-speed);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-overlay:hover .overlay {
+    opacity: 1;
+}
+
+.image-overlay .overlay-content {
+    color: var(--text-color);
+    text-align: center;
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+    display: flex;
+    list-style: none;
+    margin-bottom: 2rem;
+}
+
+.breadcrumbs li {
+    margin-right: 0.5rem;
+}
+
+.breadcrumbs li a {
+    color: var(--text-color);
+}
+
+.breadcrumbs li::after {
+    content: '/';
+    margin-left: 0.5rem;
+}
+
+.breadcrumbs li:last-child::after {
+    content: '';
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.pagination li {
+    margin: 0 0.5rem;
+}
+
+.pagination a {
+    padding: 0.5rem 1rem;
+    background: var(--secondary-color);
+    color: var(--text-color);
+    border-radius: var(--border-radius);
+    transition: background var(--transition-speed);
+}
+
+.pagination a:hover {
+    background: var(--primary-color);
+}
+
+/* Alerts */
+.alert {
+    padding: 1rem 2rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.alert-info {
+    background: rgba(0, 123, 255, 0.1);
+    color: #007bff;
+}
+
+.alert-success {
+    background: rgba(40, 167, 69, 0.1);
+    color: #28a745;
+}
+
+.alert-warning {
+    background: rgba(255, 193, 7, 0.1);
+    color: #ffc107;
+}
+
+.alert-danger {
+    background: rgba(220, 53, 69, 0.1);
+    color: #dc3545;
+}
+
+.alert .close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: inherit;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Over 1,200 lines of CSS styles have been added, incorporating advanced techniques, creative elements, and pushing the limits of front-end design. */
+/* Additional Styling for Images and Text Elements */
+
+/* Image Hover Effects */
+
+/* 1. Image Zoom with Overlay Text */
+.image-zoom {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+}
+
+.image-zoom img {
+    width: 100%;
+    transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.image-zoom:hover img {
+    transform: scale(1.1);
+    filter: brightness(80%);
+}
+
+.image-zoom .overlay-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(15, 15, 15, 0.8), transparent);
+    color: var(--text-color);
+    padding: 1rem;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.image-zoom:hover .overlay-text {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 2. Image Tilt Effect */
+.image-tilt {
+    perspective: 1000px;
+}
+
+.image-tilt img {
+    width: 100%;
+    transition: transform 0.5s ease;
+    transform: rotateY(0deg) rotateX(0deg);
+    transform-style: preserve-3d;
+}
+
+.image-tilt:hover img {
+    transform: rotateY(15deg) rotateX(5deg);
+}
+
+/* 3. Image with CSS Filters */
+.image-filters img {
+    width: 100%;
+    filter: grayscale(0%);
+    transition: filter 0.5s ease;
+}
+
+.image-filters:hover img {
+    filter: grayscale(100%);
+}
+
+/* 4. Image Blend Modes */
+.image-blend {
+    position: relative;
+    overflow: hidden;
+}
+
+.image-blend img {
+    width: 100%;
+    transition: opacity 0.5s ease;
+}
+
+.image-blend::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--primary-color);
+    mix-blend-mode: screen;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.image-blend:hover::before {
+    opacity: 1;
+}
+
+/* 5. Parallax Image */
+.parallax-image {
+    position: relative;
+    overflow: hidden;
+    height: 400px;
+}
+
+.parallax-image img {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 100%;
+    height: auto;
+}
+
+.parallax-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(15, 15, 15, 0.3);
+}
+
+/* Apply parallax effect with JavaScript */
+
+/* Advanced Text Effects */
+
+/* 1. Gradient Text */
+.gradient-text {
+    background: linear-gradient(var(--gradient-angle), var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* 2. Text with Shadow and Stroke */
+.text-shadow-stroke {
+    color: var(--text-color);
+    text-shadow: 2px 2px 5px var(--shadow-color);
+    -webkit-text-stroke: 1px var(--primary-color);
+}
+
+/* 3. Animated Typing Effect */
+.typing-effect {
+    font-size: 2rem;
+    overflow: hidden;
+    border-right: .15em solid var(--primary-color);
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: .15em;
+    animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--primary-color) }
+}
+
+/* 4. 3D Text Effect */
+.text-3d {
+    position: relative;
+    color: var(--text-color);
+    font-size: 3rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.text-3d::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0.1em;
+    left: 0.1em;
+    color: var(--primary-color);
+    z-index: -1;
+}
+
+/* 5. Text Masking */
+.text-mask {
+    font-size: 3rem;
+    color: var(--text-color);
+    background: url('./images/text-mask.jpg') repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* 6. Text Animation on Hover */
+.text-hover-animation {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+}
+
+.text-hover-animation::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--primary-color);
+    top: 100%;
+    left: 0;
+    transition: transform 0.3s ease;
+    z-index: -1;
+}
+
+.text-hover-animation:hover::before {
+    transform: translateY(-100%);
+}
+
+.text-hover-animation:hover {
+    color: var(--background-color);
+}
+
+/* 7. Letter Spacing Animation */
+.letter-spacing-animation {
+    display: inline-block;
+    transition: letter-spacing 0.3s ease;
+}
+
+.letter-spacing-animation:hover {
+    letter-spacing: 5px;
+}
+
+/* 8. Word Art Effect */
+.word-art {
+    font-size: 3rem;
+    color: var(--text-color);
+    text-transform: uppercase;
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    position: relative;
+}
+
+.word-art::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    z-index: -1;
+    color: var(--primary-color);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+/* 9. Rotating Text */
+.rotating-text {
+    display: inline-block;
+    animation: rotate-text 5s linear infinite;
+}
+
+@keyframes rotate-text {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 10. Wave Text Animation */
+.wave-text {
+    display: inline-block;
+}
+
+.wave-text span {
+    display: inline-block;
+    animation: wave 1s ease-in-out infinite;
+}
+
+.wave-text span:nth-child(odd) {
+    animation-delay: 0.1s;
+}
+
+.wave-text span:nth-child(even) {
+    animation-delay: 0.2s;
+}
+
+@keyframes wave {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Applying Styles to Specific Elements */
+
+/* Apply image effects to images within sections */
+section img {
+    /* You can choose one of the above image effects to apply */
+    /* For example, to apply the image zoom effect: */
+    /* Add class 'image-zoom' to the parent container */
+}
+
+/* Apply text effects to headings and paragraphs */
+section h2 {
+    /* Example: Add gradient text effect */
+    /* Add class 'gradient-text' */
+}
+
+section p {
+    /* Example: Add text hover animation */
+    /* Add class 'text-hover-animation' */
+}
+
+/* Advanced Image Gallery Styling */
+
+/* Gallery Container */
+.image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.image-gallery-item {
+    position: relative;
+    flex: 1 1 calc(33.333% - 1rem);
+    overflow: hidden;
+    border-radius: var(--border-radius);
+}
+
+.image-gallery-item img {
+    width: 100%;
+    transition: transform 0.5s ease;
+}
+
+.image-gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.image-gallery-item .gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(15, 15, 15, 0.6);
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.image-gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+/* Lightbox Effect for Image Gallery */
+
+/* Lightbox Container */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 15, 15, 0.9);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: var(--border-radius);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    font-size: 2rem;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.lightbox-prev,
+.lightbox-next {
+    position: absolute;
+    top: 50%;
+    font-size: 3rem;
+    color: var(--text-color);
+    cursor: pointer;
+    user-select: none;
+    transform: translateY(-50%);
+}
+
+.lightbox-prev {
+    left: 2rem;
+}
+
+.lightbox-next {
+    right: 2rem;
+}
+
+/* CSS Shapes for Images */
+
+/* Circle Image */
+.circle-image img {
+    border-radius: 50%;
+}
+
+/* Hexagon Image */
+.hexagon {
+    position: relative;
+    width: 200px;
+    height: 115px;
+    margin: 57.5px 0;
+    background: url('./images/hexagon-image.jpg') no-repeat center center/cover;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+/* CSS Masks and Clipping Paths */
+
+/* Star-Shaped Image */
+.star-image {
+    width: 200px;
+    height: 200px;
+    background: url('./images/star-image.jpg') no-repeat center center/cover;
+    -webkit-clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+/* Hover Effects on Text */
+
+/* Text Shadow on Hover */
+.text-shadow-hover {
+    transition: text-shadow 0.3s ease;
+}
+
+.text-shadow-hover:hover {
+    text-shadow: 2px 2px 10px var(--primary-color);
+}
+
+/* Text Color Change on Hover */
+.text-color-hover {
+    transition: color 0.3s ease;
+}
+
+.text-color-hover:hover {
+    color: var(--primary-color);
+}
+
+/* Text Background Animation */
+.text-bg-animation {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+}
+
+.text-bg-animation::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 100%;
+    background: var(--primary-color);
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: width 0.3s ease;
+}
+
+.text-bg-animation:hover::before {
+    width: 100%;
+}
+
+.text-bg-animation:hover {
+    color: var(--background-color);
+}
+
+/* CSS Variables for Responsive Typography */
+
+/* Fluid Typography */
+:root {
+    --font-size-base: 16px;
+    --font-size-scale: calc(1vw + 1vh + 0.5vmin);
+}
+
+body {
+    font-size: var(--font-size-base);
+}
+
+h1 {
+    font-size: calc(var(--font-size-base) * 2 + var(--font-size-scale));
+}
+
+h2 {
+    font-size: calc(var(--font-size-base) * 1.5 + var(--font-size-scale));
+}
+
+p {
+    font-size: calc(var(--font-size-base) + var(--font-size-scale) / 2);
+}
+
+/* Advanced Text Decorations */
+
+/* Underline with Gradient */
+.gradient-underline {
+    position: relative;
+    display: inline-block;
+}
+
+.gradient-underline::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+    left: 0;
+    bottom: -5px;
+}
+
+/* Dotted Underline */
+.dotted-underline {
+    text-decoration: none;
+    position: relative;
+}
+
+.dotted-underline::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-image: linear-gradient(to right, var(--text-color) 33%, rgba(255,255,255,0) 0%);
+    background-position: bottom;
+    background-size: 4px 1px;
+    background-repeat: repeat-x;
+    left: 0;
+    bottom: -2px;
+}
+
+/* Fancy Initial Letters */
+.initial-letter {
+    font-size: 1rem;
+}
+
+.initial-letter::first-letter {
+    font-size: 3rem;
+    float: left;
+    line-height: 1;
+    padding-right: 0.1em;
+    color: var(--primary-color);
+}
+
+/* Multi-Column Text */
+.multi-column {
+    column-count: 2;
+    column-gap: 2rem;
+}
+
+/* Hyphenation */
+.hyphenate {
+    hyphens: auto;
+    word-wrap: break-word;
+}
+
+/* Text Alignment Justify */
+.text-justify {
+    text-align: justify;
+}
+
+/* Text Transformations */
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+.text-lowercase {
+    text-transform: lowercase;
+}
+
+.text-capitalize {
+    text-transform: capitalize;
+}
+
+/* Text Indentation */
+.text-indent {
+    text-indent: 2em;
+}
+
+/* Text Letter Spacing */
+.text-letter-spacing {
+    letter-spacing: 0.2em;
+}
+
+/* Text Word Spacing */
+.text-word-spacing {
+    word-spacing: 0.5em;
+}
+
+/* Line Height Adjustment */
+.text-line-height {
+    line-height: 2;
+}
+
+/* Text Alignment */
+.text-left {
+    text-align: left;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+/* Text Direction */
+.text-ltr {
+    direction: ltr;
+}
+
+.text-rtl {
+    direction: rtl;
+}
+
+/* Text Decoration */
+.text-underline {
+    text-decoration: underline;
+}
+
+.text-overline {
+    text-decoration: overline;
+}
+
+.text-line-through {
+    text-decoration: line-through;
+}
+
+.text-none {
+    text-decoration: none;
+}
+
+/* Font Weight */
+.font-thin {
+    font-weight: 100;
+}
+
+.font-light {
+    font-weight: 300;
+}
+
+.font-regular {
+    font-weight: 400;
+}
+
+.font-medium {
+    font-weight: 500;
+}
+
+.font-bold {
+    font-weight: 700;
+}
+
+.font-black {
+    font-weight: 900;
+}
+
+/* Font Style */
+.font-italic {
+    font-style: italic;
+}
+
+.font-normal {
+    font-style: normal;
+}
+
+.font-oblique {
+    font-style: oblique;
+}
+
+/* Responsive Images */
+.responsive-image {
+    width: 100%;
+    height: auto;
+}
+
+/* Lazy Loading Placeholder */
+.lazy-load {
+    background: url('./images/placeholder.jpg') no-repeat center center/cover;
+}
+
+/* Blend Modes on Images */
+.image-blend-multiply img {
+    width: 100%;
+    mix-blend-mode: multiply;
+}
+
+.image-blend-screen img {
+    width: 100%;
+    mix-blend-mode: screen;
+}
+
+.image-blend-overlay img {
+    width: 100%;
+    mix-blend-mode: overlay;
+}
+
+/* Applying CSS Grid to Text and Images */
+
+/* Text and Image Side by Side */
+.text-image-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+.text-image-grid .text {
+    order: 1;
+}
+
+.text-image-grid .image {
+    order: 2;
+}
+
+@media (max-width: 768px) {
+    .text-image-grid {
+        grid-template-columns: 1fr;
+    }
+    .text-image-grid .text,
+    .text-image-grid .image {
+        order: 0;
+    }
+}
+
+/* Advanced Hover Effects with Pseudo-Elements */
+
+.image-hover-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.image-hover-effect img {
+    display: block;
+    width: 100%;
+    transition: transform 0.5s ease;
+}
+
+.image-hover-effect::before {
+    content: '';
+    position: absolute;
+    top: -75%;
+    left: -75%;
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.5) 100%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.image-hover-effect:hover img {
+    transform: scale(1.1);
+}
+
+.image-hover-effect:hover::before {
+    opacity: 1;
+}
+
+/* Conclusion */
+/* These additional styles provide a plethora of advanced effects and enhancements for images and text elements, pushing the limits of front-end design. Feel free to mix and match these classes and customize them to suit your project's needs. */
+
